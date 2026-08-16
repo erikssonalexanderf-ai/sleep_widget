@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Sleep Trends</title>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+
+* {{
+    box-sizing: border-box;
+}}
+
+body {{
+    margin: 0;
+    padding: 10px;
+
+    font-family: Arial, sans-serif;
+
+    background: black;
+
+    color: orange;
+}}
+
+h2 {{
+    text-align: center;
+
+    margin: 5px 0 15px 0;
+
+    color: orange;
+}}
+
+.controls {{
+    display: flex;
+
+    justify-content: center;
+
+    margin-bottom: 15px;
+}}
+
+select {{
+    background: black;
+
+    color: orange;
+
+    border: 1px solid orange;
+
+    padding: 6px 10px;
+
+    border-radius: 4px;
+
+    font-size: 14px;
+}}
+
+.chart-container {{
+    width: 100%;
+
+    height: 400px;
+}}
+
+</style>
+
+</head>
+
+
+<body>
+
+<h2>Sleep Trends</h2>
+
+
+<div class="controls">
+
+<select id="rangeSelect">
+
+<option value="7">1 Week</option>
+
+<option value="14">2 Weeks</option>
+
+<option value="56" selected>8 Weeks</option>
+
+<option value="30">1 Month</option>
+
+<option value="90">3 Months</option>
+
+<option value="180">6 Months</option>
+
+<option value="365">1 Year</option>
+
+</select>
+
+</div>
+
+
+<div class="chart-container">
+
+<canvas id="sleepChart"></canvas>
+
+</div>
+
+
+<script>
+
+// ========================================================
+// SLEEP DATA
+// ========================================================
+
+const allSleepData = [{"date": "2026-08-16", "sleep_seconds": 33780, "nap_seconds": 0, "deep_seconds": 7500, "light_seconds": 19320, "rem_seconds": 6960, "awake_seconds": 1200, "sleep_score": 86, "sleep_need_seconds": 540, "next_sleep_need_seconds": 560, "avg_heart_rate": 51, "avg_respiration": 15.0, "lowest_respiration": 9.0, "highest_respiration": 19.0, "awake_count": 2, "avg_sleep_stress": 17.0, "body_battery_change": 70, "overnight_hrv": 89.0, "hrv_status": "UNBALANCED", "resting_heart_rate": 47}];
+
+
+// ========================================================
+// CREATE CHART
+// ========================================================
+
+let sleepChart;
+
+
+function createChart(days) {{
+
+    const sleepData = allSleepData.slice(-days);
+
+
+    const labels = sleepData.map(
+        entry => entry.date
+    );
+
+
+    // ----------------------------------------------------
+    // TOTAL SLEEP
+    // ----------------------------------------------------
+
+    const totalSleep = sleepData.map(
+        entry => {
+
+            if (
+                entry.sleep_seconds === null ||
+                entry.sleep_seconds === undefined
+            ) {{
+                return null;
+            }}
+
+            return entry.sleep_seconds / 3600;
+        }}
+    );
+
+
+    // ----------------------------------------------------
+    // SLEEP NEED
+    // ----------------------------------------------------
+
+    const sleepNeed = sleepData.map(
+        entry => {
+
+            if (
+                entry.sleep_need_seconds === null ||
+                entry.sleep_need_seconds === undefined
+            ) {{
+                return null;
+            }}
+
+            return entry.sleep_need_seconds / 3600;
+        }}
+    );
+
+
+    // ----------------------------------------------------
+    // DESTROY OLD CHART
+    // ----------------------------------------------------
+
+    if (sleepChart) {{
+        sleepChart.destroy();
+    }}
+
+
+    // ----------------------------------------------------
+    // CREATE NEW CHART
+    // ----------------------------------------------------
+
+    const ctx = document.getElementById(
+        "sleepChart"
+    );
+
+
+    sleepChart = new Chart(ctx, {{
+
+        type: "line",
+
+        data: {{
+
+            labels: labels,
+
+            datasets: [
+
+                // ----------------------------------------
+                // TOTAL SLEEP
+                // ----------------------------------------
+
+                {{
+                    label: "Total Sleep",
+
+                    data: totalSleep,
+
+                    borderWidth: 3,
+
+                    pointRadius: 3,
+
+                    tension: 0.2,
+
+                    spanGaps: true
+                }},
+
+
+                // ----------------------------------------
+                // SLEEP NEED
+                // ----------------------------------------
+
+                {{
+                    label: "Sleep Need",
+
+                    data: sleepNeed,
+
+                    borderWidth: 2,
+
+                    pointRadius: 2,
+
+                    borderDash: [6, 6],
+
+                    tension: 0.2,
+
+                    spanGaps: true
+                }}
+
+            ]
+
+        }},
+
+
+        options: {{
+
+            responsive: true,
+
+            maintainAspectRatio: false,
+
+
+            interaction: {{
+
+                mode: "index",
+
+                intersect: false
+
+            }},
+
+
+            plugins: {{
+
+                legend: {{
+
+                    display: true,
+
+                    labels: {{
+
+                        color: "orange"
+
+                    }}
+
+                }},
+
+
+                tooltip: {{
+
+                    callbacks: {{
+
+                        label: function(context) {{
+
+                            if (
+                                context.raw === null ||
+                                context.raw === undefined
+                            ) {{
+                                return context.dataset.label + ": No data";
+                            }}
+
+                            return (
+                                context.dataset.label +
+                                ": " +
+                                context.raw.toFixed(1) +
+                                " hours"
+                            );
+
+                        }}
+
+                    }}
+
+                }}
+
+            }},
+
+
+            scales: {{
+
+                x: {{
+
+                    ticks: {{
+
+                        color: "orange",
+
+                        maxTicksLimit: 8,
+
+                        callback: function(value) {{
+
+                            const date = new Date(
+
+                                this.getLabelForValue(value)
+
+                            );
+
+                            return date.toLocaleDateString(
+
+                                "en-US",
+
+                                {{
+
+                                    month: "short",
+
+                                    day: "numeric"
+
+                                }}
+
+                            );
+
+                        }}
+
+                    }},
+
+
+                    title: {{
+
+                        display: true,
+
+                        text: "Date",
+
+                        color: "orange"
+
+                    }},
+
+
+                    grid: {{
+
+                        color:
+                            "rgba(255, 165, 0, 0.2)"
+
+                    }}
+
+                }},
+
+
+                y: {{
+
+                    min: 0,
+
+                    max: 12,
+
+
+                    ticks: {{
+
+                        color: "orange",
+
+                        callback: function(value) {{
+
+                            return value + "h";
+
+                        }}
+
+                    }},
+
+
+                    title: {{
+
+                        display: true,
+
+                        text: "Sleep (hours)",
+
+                        color: "orange"
+
+                    }},
+
+
+                    grid: {{
+
+                        color:
+                            "rgba(255, 165, 0, 0.2)"
+
+                    }}
+
+                }}
+
+            }}
+
+        }}
+
+    }});
+
+}}
+
+
+// ========================================================
+// RANGE SELECTOR
+// ========================================================
+
+document
+    .getElementById("rangeSelect")
+    .addEventListener("change", function() {{
+
+        const days = parseInt(
+            this.value
+        );
+
+        createChart(days);
+
+    }});
+
+
+// ========================================================
+// INITIAL CHART
+// ========================================================
+
+createChart(56);
+
+</script>
+
+</body>
+
+</html>
