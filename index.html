@@ -74,7 +74,6 @@ select {
 
 <h2>Sleep Trends</h2>
 
-
 <div class="controls">
 
 <select id="rangeSelect">
@@ -131,39 +130,65 @@ function createChart(days) {
 
 
     // ----------------------------------------------------
-    // TOTAL SLEEP
+    // SLEEP STAGES
     // ----------------------------------------------------
 
-    const totalSleep = sleepData.map(
+    const deepSleep = sleepData.map(
         entry => {
 
             if (
-                entry.sleep_seconds === null ||
-                entry.sleep_seconds === undefined
+                entry.deep_seconds === null ||
+                entry.deep_seconds === undefined
             ) {
                 return null;
             }
 
-            return entry.sleep_seconds / 3600;
+            return entry.deep_seconds / 3600;
         }
     );
 
 
-    // ----------------------------------------------------
-    // SLEEP NEED
-    // ----------------------------------------------------
-
-    const sleepNeed = sleepData.map(
+    const lightSleep = sleepData.map(
         entry => {
 
             if (
-                entry.sleep_need_seconds === null ||
-                entry.sleep_need_seconds === undefined
+                entry.light_seconds === null ||
+                entry.light_seconds === undefined
             ) {
                 return null;
             }
 
-            return entry.sleep_need_seconds / 3600;
+            return entry.light_seconds / 3600;
+        }
+    );
+
+
+    const remSleep = sleepData.map(
+        entry => {
+
+            if (
+                entry.rem_seconds === null ||
+                entry.rem_seconds === undefined
+            ) {
+                return null;
+            }
+
+            return entry.rem_seconds / 3600;
+        }
+    );
+
+
+    const awakeSleep = sleepData.map(
+        entry => {
+
+            if (
+                entry.awake_seconds === null ||
+                entry.awake_seconds === undefined
+            ) {
+                return null;
+            }
+
+            return entry.awake_seconds / 3600;
         }
     );
 
@@ -178,7 +203,7 @@ function createChart(days) {
 
 
     // ----------------------------------------------------
-    // CREATE NEW CHART
+    // CREATE CHART
     // ----------------------------------------------------
 
     const ctx = document.getElementById(
@@ -188,7 +213,7 @@ function createChart(days) {
 
     sleepChart = new Chart(ctx, {
 
-        type: "line",
+        type: "bar",
 
         data: {
 
@@ -196,43 +221,47 @@ function createChart(days) {
 
             datasets: [
 
-                // ----------------------------------------
-                // TOTAL SLEEP
-                // ----------------------------------------
-
                 {
-                    label: "Total Sleep",
+                    label: "Deep Sleep",
 
-                    data: totalSleep,
+                    data: deepSleep,
 
-                    borderWidth: 3,
+                    backgroundColor: "#4169E1",
 
-                    pointRadius: 3,
-
-                    tension: 0.2,
-
-                    spanGaps: true
+                    borderWidth: 0
                 },
 
 
-                // ----------------------------------------
-                // SLEEP NEED
-                // ----------------------------------------
+                {
+                    label: "Light Sleep",
+
+                    data: lightSleep,
+
+                    backgroundColor: "#87CEEB",
+
+                    borderWidth: 0
+                },
+
 
                 {
-                    label: "Sleep Need",
+                    label: "REM Sleep",
 
-                    data: sleepNeed,
+                    data: remSleep,
 
-                    borderWidth: 2,
+                    backgroundColor: "#9370DB",
 
-                    pointRadius: 2,
+                    borderWidth: 0
+                },
 
-                    borderDash: [6, 6],
 
-                    tension: 0.2,
+                {
+                    label: "Awake",
 
-                    spanGaps: true
+                    data: awakeSleep,
+
+                    backgroundColor: "#FF8C00",
+
+                    borderWidth: 0
                 }
 
             ]
@@ -304,6 +333,8 @@ function createChart(days) {
 
                 x: {
 
+                    stacked: true,
+
                     ticks: {
 
                         color: "orange",
@@ -328,7 +359,6 @@ function createChart(days) {
 
                     },
 
-
                     title: {
 
                         display: true,
@@ -338,7 +368,6 @@ function createChart(days) {
                         color: "orange"
 
                     },
-
 
                     grid: {
 
@@ -352,10 +381,11 @@ function createChart(days) {
 
                 y: {
 
+                    stacked: true,
+
                     min: 0,
 
                     max: 12,
-
 
                     ticks: {
 
@@ -369,7 +399,6 @@ function createChart(days) {
 
                     },
 
-
                     title: {
 
                         display: true,
@@ -379,7 +408,6 @@ function createChart(days) {
                         color: "orange"
 
                     },
-
 
                     grid: {
 
