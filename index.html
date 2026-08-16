@@ -14,11 +14,11 @@
 
 <style>
 
-* {
+* {{
     box-sizing: border-box;
-}
+}}
 
-body {
+body {{
     margin: 0;
     padding: 10px;
 
@@ -27,25 +27,25 @@ body {
     background: black;
 
     color: orange;
-}
+}}
 
-h2 {
+h2 {{
     text-align: center;
 
     margin: 5px 0 15px 0;
 
     color: orange;
-}
+}}
 
-.controls {
+.controls {{
     display: flex;
 
     justify-content: center;
 
     margin-bottom: 15px;
-}
+}}
 
-select {
+select {{
     background: black;
 
     color: orange;
@@ -57,13 +57,13 @@ select {
     border-radius: 4px;
 
     font-size: 14px;
-}
+}}
 
-.chart-container {
+.chart-container {{
     width: 100%;
 
     height: 400px;
-}
+}}
 
 </style>
 
@@ -111,7 +111,7 @@ select {
 // SLEEP DATA
 // ========================================================
 
-const allSleepData = [{"date": "2026-08-16", "sleep_seconds": 33780, "nap_seconds": 0, "deep_seconds": 7500, "light_seconds": 19320, "rem_seconds": 6960, "awake_seconds": 1200, "sleep_score": 86, "sleep_need_seconds": 540, "next_sleep_need_seconds": 560, "avg_heart_rate": 51, "avg_respiration": 15.0, "lowest_respiration": 9.0, "highest_respiration": 19.0, "awake_count": 2, "avg_sleep_stress": 17.0, "body_battery_change": 70, "overnight_hrv": 89.0, "hrv_status": "UNBALANCED", "resting_heart_rate": 47}];
+const allSleepData = [{"date": "2026-06-22", "sleep_seconds": 31920, "nap_seconds": 0, "deep_seconds": 6180, "light_seconds": 18840, "rem_seconds": 6900, "awake_seconds": 1560, "sleep_score": 90, "sleep_need_seconds": 600, "next_sleep_need_seconds": 590, "avg_heart_rate": 50, "avg_respiration": 13.0, "lowest_respiration": 8.0, "highest_respiration": 17.0, "awake_count": 1, "avg_sleep_stress": 14.0, "body_battery_change": 91, "overnight_hrv": 95.0, "hrv_status": "LOW", "resting_heart_rate": 43}, {"date": "2026-06-23", "sleep_seconds": 29066, "nap_seconds": 0, "deep_seconds": 5580, "light_seconds": 18180, "rem_seconds": 5340, "awake_seconds": 180, "sleep_score": 85, "sleep_need_seconds": 590, "next_sleep_need_seconds": 560, "avg_heart_rate": 51, "avg_respiration": 14.0, "lowest_respiration": 7.0, "highest_respiration": 17.0, "awake_count": 0, "avg_sleep_stress": 14.0, "body_battery_change": 81, "overnight_hrv": 91.0, "hrv_status": "UNBALANCED", "resting_heart_rate": 46}, {"date": "2026-06-24", "sleep_seconds": 26100, "nap_seconds": 0, "deep_seconds": 7140, "light_seconds": 14580, "rem_seconds": 4380, "awake_seconds": 720, "sleep_score": 79, "sleep_need_seconds": 560, "next_sleep_need_seconds": 580, "avg_heart_rate": 51, "avg_respiration": 15.0, "lowest_respiration": 9.0, "highest_respiration": 19.0, "awake_count": 1, "avg_sleep_stress": 12.0, "body_battery_change": 76, "overnight_hrv": 93.0, "hrv_status": "UNBALANCED", "resting_heart_rate": 46}, {"date": "2026-06-25", "sleep_seconds": 30360, "nap_seconds": 0, "deep_seconds": 7080, "light_seconds": 18240, "rem_seconds": 5040, "awake_seconds": 840, "sleep_score": 84, "sleep_need_seconds": 580, "next_sleep_need_seconds": 540, "avg_heart_rate": 52, "avg_respiration": 14.0, "lowest_respiration": 7.0, "highest_respiration": 19.0, "awake_count": 0, "avg_sleep_stress": 17.0, "body_battery_change": 79, "overnight_hrv": 90.0, "hrv_status": "UNBALANCED", "resting_heart_rate": 48}, {"date": "2026-06-26", "sleep_seconds": 30840, "nap_seconds": 0, "deep_seconds": 2940, "light_seconds": 21180, "rem_seconds": 6720, "awake_seconds": 480, "sleep_score": 86, "sleep_need_seconds": 540, "next_sleep_need_seconds": 590, "avg_heart_rate": 51, "avg_respiration": 15.0, "lowest_respiration": 7.0, "highest_respiration": 18.0, "awake_count": 1, "avg_sleep_stress": 13.0, "body_battery_change": 85, "overnight_hrv": 96.0, "hrv_status": "BALANCED", "resting_heart_rate": 47}, {"date": "2026-06-27", "sleep_seconds": 25320, "nap_seconds": 0, "deep_seconds": 5040, "light_seconds": 16680, "rem_seconds": 3600, "awake_seconds": 0, "sleep_score": 78, "sleep_need_seconds": 590, "next_sleep_need_seconds": 580, "avg_heart_rate": 53, "avg_respiration": 16.0, "lowest_respiration": 11.0, "highest_respiration": 18.0, "awake_count": 0, "avg_sleep_stress": 10.0, "body_battery_change": 77, "overnight_hrv": 84.0, "hrv_status": "BALANCED", "resting_heart_rate": 48}, {"date": "2026-06-28", "sleep_seconds": null, "nap_seconds": null, "deep_seconds": null, "light_seconds": null, "rem_seconds": null, "awake_seconds": null, "sleep_score": null, "sleep_need_seconds": 580, "next_sleep_need_seconds": 540, "avg_heart_rate": null, "avg_respiration": null, "lowest_respiration": null, "highest_respiration": null, "awake_count": null, "avg_sleep_stress": null, "body_battery_change": null, "overnight_hrv": null, "hrv_status": null, "resting_heart_rate": null}, {"date": "2026-06-29", "sleep_seconds": 27240, "nap_seconds": 960, "deep_seconds": 6060, "light_seconds": 11460, "rem_seconds": 9720, "awake_seconds": 0, "sleep_score": 82, "sleep_need_seconds": 540, "next_sleep_need_seconds": 540, "avg_heart_rate": 45, "avg_respiration": 13.0, "lowest_respiration": 6.0, "highest_respiration": 17.0, "awake_count": 0, "avg_sleep_stress": 6.0, "body_battery_change": 61, "overnight_hrv": 109.0, "hrv_status": "BALANCED", "resting_heart_rate": 41}, {"date": "2026-06-30", "sleep_seconds": 28320, "nap_seconds": 0, "deep_seconds": 4980, "light_seconds": 15960, "rem_seconds": 7380, "awake_seconds": 240, "sleep_score": 86, "sleep_need_seconds": 540, "next_sleep_need_seconds": 540, "avg_heart_rate": 44, "avg_respiration": 11.0, "lowest_respiration": 6.0, "highest_respiration": 17.0, "awake_count": 0, "avg_sleep_stress": 5.0, "body_battery_change": 60, "overnight_hrv": 115.0, "hrv_status": "BALANCED", "resting_heart_rate": 41}, {"date": "2026-07-01", "sleep_seconds": null, "nap_seconds": null, "deep_seconds": null, "light_seconds": null, "rem_seconds": null, "awake_seconds": null, "sleep_score": null, "sleep_need_seconds": 540, "next_sleep_need_seconds": 540, "avg_heart_rate": null, "avg_respiration": null, "lowest_respiration": null, "highest_respiration": null, "awake_count": null, "avg_sleep_stress": null, "body_battery_change": null, "overnight_hrv": null, "hrv_status": null, "resting_heart_rate": null}, {"date": "2026-07-02", "sleep_seconds": 27180, "nap_seconds": 0, "deep_seconds": 3720, "light_seconds": 16500, "rem_seconds": 6960, "awake_seconds": 120, "sleep_score": 83, "sleep_need_seconds": 540, "next_sleep_need_seconds": 540, "avg_heart_rate": 46, "avg_respiration": 11.0, "lowest_respiration": 6.0, "highest_respiration": 16.0, "awake_count": 0, "avg_sleep_stress": 7.0, "body_battery_change": 69, "overnight_hrv": 112.0, "hrv_status": "BALANCED", "resting_heart_rate": 42}, {"date": "2026-07-03", "sleep_seconds": 28260, "nap_seconds": 0, "deep_seconds": 4500, "light_seconds": 22440, "rem_seconds": 1320, "awake_seconds": 2520, "sleep_score": 64, "sleep_need_seconds": 540, "next_sleep_need_seconds": 580, "avg_heart_rate": 51, "avg_respiration": 10.0, "lowest_respiration": 5.0, "highest_respiration": 20.0, "awake_count": 2, "avg_sleep_stress": 15.0, "body_battery_change": 67, "overnight_hrv": 100.0, "hrv_status": "BALANCED", "resting_heart_rate": 48}, {"date": "2026-07-04", "sleep_seconds": 19380, "nap_seconds": 0, "deep_seconds": 3900, "light_seconds": 10200, "rem_seconds": 5280, "awake_seconds": 0, "sleep_score": 61, "sleep_need_seconds": 580, "next_sleep_need_seconds": 600, "avg_heart_rate": 50, "avg_respiration": 12.0, "lowest_respiration": 7.0, "highest_respiration": 16.0, "awake_count": 0, "avg_sleep_stress": 19.0, "body_battery_change": 43, "overnight_hrv": 95.0, "hrv_status": "BALANCED", "resting_heart_rate": 47}, {"date": "2026-07-05", "sleep_seconds": null, "nap_seconds": null, "deep_seconds": null, "light_seconds": null, "rem_seconds": null, "awake_seconds": null, "sleep_score": null, "sleep_need_seconds": 600, "next_sleep_need_seconds": 540, "avg_heart_rate": null, "avg_respiration": null, "lowest_respiration": null, "highest_respiration": null, "awake_count": null, "avg_sleep_stress": null, "body_battery_change": null, "overnight_hrv": null, "hrv_status": null, "resting_heart_rate": null}, {"date": "2026-07-06", "sleep_seconds": 31440, "nap_seconds": 0, "deep_seconds": 5400, "light_seconds": 18240, "rem_seconds": 7800, "awake_seconds": 0, "sleep_score": 95, "sleep_need_seconds": 540, "next_sleep_need_seconds": 560, "avg_heart_rate": 49, "avg_respiration": 11.0, "lowest_respiration": 6.0, "highest_respiration": 17.0, "awake_count": 0, "avg_sleep_stress": 10.0, "body_battery_change": 68, "overnight_hrv": 105.0, "hrv_status": "BALANCED", "resting_heart_rate": 46}, {"date": "2026-07-07", "sleep_seconds": 35963, "nap_seconds": 0, "deep_seconds": 5280, "light_seconds": 24900, "rem_seconds": 5820, "awake_seconds": 60, "sleep_score": 90, "sleep_need_seconds": 560, "next_sleep_need_seconds": 540, "avg_heart_rate": 51, "avg_respiration": 13.0, "lowest_respiration": 8.0, "highest_respiration": 18.0, "awake_count": 0, "avg_sleep_stress": 11.0, "body_battery_change": 77, "overnight_hrv": 99.0, "hrv_status": "BALANCED", "resting_heart_rate": 46}, {"date": "2026-07-08", "sleep_seconds": 35820, "nap_seconds": 0, "deep_seconds": 7500, "light_seconds": 17460, "rem_seconds": 10860, "awake_seconds": 0, "sleep_score": 98, "sleep_need_seconds": 540, "next_sleep_need_seconds": 510, "avg_heart_rate": 47, "avg_respiration": 14.0, "lowest_respiration": 9.0, "highest_respiration": 18.0, "awake_count": 0, "avg_sleep_stress": 8.0, "body_battery_change": 73, "overnight_hrv": 107.0, "hrv_status": "BALANCED", "resting_heart_rate": 42}, {"date": "2026-07-09", "sleep_seconds": 34359, "nap_seconds": 0, "deep_seconds": 5100, "light_seconds": 23700, "rem_seconds": 5580, "awake_seconds": 720, "sleep_score": 88, "sleep_need_seconds": 510, "next_sleep_need_seconds": 520, "avg_heart_rate": 49, "avg_respiration": 14.0, "lowest_respiration": 10.0, "highest_respiration": 20.0, "awake_count": 1, "avg_sleep_stress": 13.0, "body_battery_change": 75, "overnight_hrv": 108.0, "hrv_status": "BALANCED", "resting_heart_rate": 46}, {"date": "2026-07-10", "sleep_seconds": 33085, "nap_seconds": 0, "deep_seconds": 6600, "light_seconds": 22800, "rem_seconds": 3720, "awake_seconds": 2880, "sleep_score": 77, "sleep_need_seconds": 520, "next_sleep_need_seconds": 540, "avg_heart_rate": 49, "avg_respiration": 14.0, "lowest_respiration": 9.0, "highest_respiration": 18.0, "awake_count": 3, "avg_sleep_stress": 15.0, "body_battery_change": 74, "overnight_hrv": 102.0, "hrv_status": "BALANCED", "resting_heart_rate": 45}, {"date": "2026-07-11", "sleep_seconds": 29700, "nap_seconds": 0, "deep_seconds": 4920, "light_seconds": 17400, "rem_seconds": 7380, "awake_seconds": 600, "sleep_score": 91, "sleep_need_seconds": 540, "next_sleep_need_seconds": 540, "avg_heart_rate": 47, "avg_respiration": 14.0, "lowest_respiration": 9.0, "highest_respiration": 18.0, "awake_count": 1, "avg_sleep_stress": 10.0, "body_battery_change": 83, "overnight_hrv": 104.0, "hrv_status": "BALANCED", "resting_heart_rate": 44}, {"date": "2026-07-12", "sleep_seconds": null, "nap_seconds": null, "deep_seconds": null, "light_seconds": null, "rem_seconds": null, "awake_seconds": null, "sleep_score": null, "sleep_need_seconds": 540, "next_sleep_need_seconds": 540, "avg_heart_rate": null, "avg_respiration": null, "lowest_respiration": null, "highest_respiration": null, "awake_count": null, "avg_sleep_stress": null, "body_battery_change": null, "overnight_hrv": null, "hrv_status": null, "resting_heart_rate": null}, {"date": "2026-07-13", "sleep_seconds": 35820, "nap_seconds": 0, "deep_seconds": 4860, "light_seconds": 27120, "rem_seconds": 3840, "awake_seconds": 420, "sleep_score": 86, "sleep_need_seconds": 540, "next_sleep_need_seconds": 540, "avg_heart_rate": 48, "avg_respiration": 9.0, "lowest_respiration": 5.0, "highest_respiration": 15.0, "awake_count": 0, "avg_sleep_stress": 10.0, "body_battery_change": 56, "overnight_hrv": 109.0, "hrv_status": "BALANCED", "resting_heart_rate": 42}, {"date": "2026-07-14", "sleep_seconds": 32880, "nap_seconds": 0, "deep_seconds": 8640, "light_seconds": 18840, "rem_seconds": 5400, "awake_seconds": 900, "sleep_score": 88, "sleep_need_seconds": 540, "next_sleep_need_seconds": 540, "avg_heart_rate": 50, "avg_respiration": 13.0, "lowest_respiration": 8.0, "highest_respiration": 18.0, "awake_count": 1, "avg_sleep_stress": 15.0, "body_battery_change": 58, "overnight_hrv": 94.0, "hrv_status": "BALANCED", "resting_heart_rate": 47}, {"date": "2026-07-15", "sleep_seconds": 30000, "nap_seconds": 0, "deep_seconds": 6240, "light_seconds": 19080, "rem_seconds": 4680, "awake_seconds": 600, "sleep_score": 87, "sleep_need_seconds": 540, "next_sleep_need_seconds": 540, "avg_heart_rate": 48, "avg_respiration": 14.0, "lowest_respiration": 7.0, "highest_respiration": 17.0, "awake_count": 1, "avg_sleep_stress": 10.0, "body_battery_change": 68, "overnight_hrv": 104.0, "hrv_status": "BALANCED", "resting_heart_rate": 44}, {"date": "2026-07-16", "sleep_seconds": 28500, "nap_seconds": 0, "deep_seconds": 6660, "light_seconds": 17280, "rem_seconds": 4560, "awake_seconds": 1140, "sleep_score": 79, "sleep_need_seconds": 540, "next_sleep_need_seconds": 540, "avg_heart_rate": 52, "avg_respiration": 14.0, "lowest_respiration": 8.0, "highest_respiration": 19.0, "awake_count": 1, "avg_sleep_stress": 19.0, "body_battery_change": 50, "overnight_hrv": 79.0, "hrv_status": "BALANCED", "resting_heart_rate": 47}, {"date": "2026-07-17", "sleep_seconds": 34620, "nap_seconds": 0, "deep_seconds": 7440, "light_seconds": 21720, "rem_seconds": 5460, "awake_seconds": 60, "sleep_score": 94, "sleep_need_seconds": 540, "next_sleep_need_seconds": 540, "avg_heart_rate": 49, "avg_respiration": 13.0, "lowest_respiration": 6.0, "highest_respiration": 17.0, "awake_count": 0, "avg_sleep_stress": 10.0, "body_battery_change": 71, "overnight_hrv": 103.0, "hrv_status": "BALANCED", "resting_heart_rate": 45}, {"date": "2026-07-18", "sleep_seconds": 31538, "nap_seconds": 0, "deep_seconds": 5100, "light_seconds": 22320, "rem_seconds": 4140, "awake_seconds": 1380, "sleep_score": 81, "sleep_need_seconds": 540, "next_sleep_need_seconds": 540, "avg_heart_rate": 50, "avg_respiration": 13.0, "lowest_respiration": 7.0, "highest_respiration": 17.0, "awake_count": 2, "avg_sleep_stress": 15.0, "body_battery_change": 63, "overnight_hrv": 97.0, "hrv_status": "BALANCED", "resting_heart_rate": 46}, {"date": "2026-07-19", "sleep_seconds": 20340, "nap_seconds": 0, "deep_seconds": 6120, "light_seconds": 13080, "rem_seconds": 1140, "awake_seconds": 1560, "sleep_score": 56, "sleep_need_seconds": 540, "next_sleep_need_seconds": 600, "avg_heart_rate": 52, "avg_respiration": 15.0, "lowest_respiration": 10.0, "highest_respiration": 18.0, "awake_count": 1, "avg_sleep_stress": 23.0, "body_battery_change": 44, "overnight_hrv": 80.0, "hrv_status": "BALANCED", "resting_heart_rate": 48}, {"date": "2026-07-20", "sleep_seconds": 31260, "nap_seconds": 0, "deep_seconds": 7380, "light_seconds": 17580, "rem_seconds": 6300, "awake_seconds": 60, "sleep_score": 86, "sleep_need_seconds": 600, "next_sleep_need_seconds": 580, "avg_heart_rate": 51, "avg_respiration": 15.0, "lowest_respiration": 12.0, "highest_respiration": 18.0, "awake_count": 0, "avg_sleep_stress": 20.0, "body_battery_change": 75, "overnight_hrv": 87.0, "hrv_status": "BALANCED", "resting_heart_rate": 47}, {"date": "2026-07-21", "sleep_seconds": 29160, "nap_seconds": 0, "deep_seconds": 6480, "light_seconds": 18180, "rem_seconds": 4500, "awake_seconds": 120, "sleep_score": 80, "sleep_need_seconds": 580, "next_sleep_need_seconds": 540, "avg_heart_rate": 52, "avg_respiration": 15.0, "lowest_respiration": 10.0, "highest_respiration": 20.0, "awake_count": 0, "avg_sleep_stress": 19.0, "body_battery_change": 68, "overnight_hrv": 87.0, "hrv_status": "BALANCED", "resting_heart_rate": 48}, {"date": "2026-07-22", "sleep_seconds": 32040, "nap_seconds": 0, "deep_seconds": 4440, "light_seconds": 19320, "rem_seconds": 8280, "awake_seconds": 0, "sleep_score": 95, "sleep_need_seconds": 540, "next_sleep_need_seconds": 540, "avg_heart_rate": 51, "avg_respiration": 15.0, "lowest_respiration": 9.0, "highest_respiration": 17.0, "awake_count": 0, "avg_sleep_stress": 11.0, "body_battery_change": 84, "overnight_hrv": 104.0, "hrv_status": "BALANCED", "resting_heart_rate": 47}, {"date": "2026-07-23", "sleep_seconds": 28500, "nap_seconds": 0, "deep_seconds": 6600, "light_seconds": 14760, "rem_seconds": 7140, "awake_seconds": 120, "sleep_score": 86, "sleep_need_seconds": 540, "next_sleep_need_seconds": 540, "avg_heart_rate": 49, "avg_respiration": 13.0, "lowest_respiration": 7.0, "highest_respiration": 17.0, "awake_count": 0, "avg_sleep_stress": 14.0, "body_battery_change": 66, "overnight_hrv": 97.0, "hrv_status": "BALANCED", "resting_heart_rate": 45}, {"date": "2026-07-24", "sleep_seconds": 31380, "nap_seconds": 0, "deep_seconds": 6000, "light_seconds": 20880, "rem_seconds": 4500, "awake_seconds": 1860, "sleep_score": 85, "sleep_need_seconds": 540, "next_sleep_need_seconds": 570, "avg_heart_rate": 51, "avg_respiration": 14.0, "lowest_respiration": 9.0, "highest_respiration": 19.0, "awake_count": 1, "avg_sleep_stress": 15.0, "body_battery_change": 65, "overnight_hrv": 93.0, "hrv_status": "BALANCED", "resting_heart_rate": 47}, {"date": "2026-07-25", "sleep_seconds": 28140, "nap_seconds": 0, "deep_seconds": 6240, "light_seconds": 16320, "rem_seconds": 5580, "awake_seconds": 420, "sleep_score": 83, "sleep_need_seconds": 570, "next_sleep_need_seconds": 540, "avg_heart_rate": 48, "avg_respiration": 14.0, "lowest_respiration": 10.0, "highest_respiration": 17.0, "awake_count": 0, "avg_sleep_stress": 14.0, "body_battery_change": 75, "overnight_hrv": 98.0, "hrv_status": "BALANCED", "resting_heart_rate": 44}, {"date": "2026-07-26", "sleep_seconds": 28257, "nap_seconds": 0, "deep_seconds": 6660, "light_seconds": 14760, "rem_seconds": 6840, "awake_seconds": 660, "sleep_score": 86, "sleep_need_seconds": 540, "next_sleep_need_seconds": 540, "avg_heart_rate": 48, "avg_respiration": 14.0, "lowest_respiration": 10.0, "highest_respiration": 18.0, "awake_count": 1, "avg_sleep_stress": 9.0, "body_battery_change": 79, "overnight_hrv": 104.0, "hrv_status": "BALANCED", "resting_heart_rate": 45}, {"date": "2026-07-27", "sleep_seconds": 16680, "nap_seconds": 11280, "deep_seconds": 4920, "light_seconds": 11760, "rem_seconds": 0, "awake_seconds": 0, "sleep_score": 45, "sleep_need_seconds": 540, "next_sleep_need_seconds": 480, "avg_heart_rate": 47, "avg_respiration": null, "lowest_respiration": null, "highest_respiration": null, "awake_count": 0, "avg_sleep_stress": 10.0, "body_battery_change": 48, "overnight_hrv": 99.0, "hrv_status": "BALANCED", "resting_heart_rate": 49}, {"date": "2026-07-28", "sleep_seconds": 30000, "nap_seconds": 0, "deep_seconds": 7800, "light_seconds": 18420, "rem_seconds": 3780, "awake_seconds": 1800, "sleep_score": 80, "sleep_need_seconds": 480, "next_sleep_need_seconds": 580, "avg_heart_rate": 55, "avg_respiration": 14.0, "lowest_respiration": 7.0, "highest_respiration": 18.0, "awake_count": 1, "avg_sleep_stress": 22.0, "body_battery_change": 51, "overnight_hrv": 72.0, "hrv_status": "BALANCED", "resting_heart_rate": 49}, {"date": "2026-07-29", "sleep_seconds": 27360, "nap_seconds": 0, "deep_seconds": 6240, "light_seconds": 16980, "rem_seconds": 4140, "awake_seconds": 1320, "sleep_score": 82, "sleep_need_seconds": 580, "next_sleep_need_seconds": 570, "avg_heart_rate": 52, "avg_respiration": 14.0, "lowest_respiration": 8.0, "highest_respiration": 18.0, "awake_count": 2, "avg_sleep_stress": 17.0, "body_battery_change": 63, "overnight_hrv": 84.0, "hrv_status": "BALANCED", "resting_heart_rate": 46}, {"date": "2026-07-30", "sleep_seconds": 38100, "nap_seconds": 0, "deep_seconds": 3720, "light_seconds": 29040, "rem_seconds": 5340, "awake_seconds": 1740, "sleep_score": 82, "sleep_need_seconds": 570, "next_sleep_need_seconds": 540, "avg_heart_rate": 50, "avg_respiration": 14.0, "lowest_respiration": 8.0, "highest_respiration": 18.0, "awake_count": 2, "avg_sleep_stress": 12.0, "body_battery_change": 86, "overnight_hrv": 95.0, "hrv_status": "BALANCED", "resting_heart_rate": 44}, {"date": "2026-07-31", "sleep_seconds": 29760, "nap_seconds": 0, "deep_seconds": 6300, "light_seconds": 20640, "rem_seconds": 2820, "awake_seconds": 3120, "sleep_score": 68, "sleep_need_seconds": 540, "next_sleep_need_seconds": 560, "avg_heart_rate": 55, "avg_respiration": 15.0, "lowest_respiration": 11.0, "highest_respiration": 21.0, "awake_count": 3, "avg_sleep_stress": 24.0, "body_battery_change": 33, "overnight_hrv": 64.0, "hrv_status": "UNBALANCED", "resting_heart_rate": 52}, {"date": "2026-08-01", "sleep_seconds": 34680, "nap_seconds": 0, "deep_seconds": 8160, "light_seconds": 20400, "rem_seconds": 6120, "awake_seconds": 180, "sleep_score": 87, "sleep_need_seconds": 560, "next_sleep_need_seconds": 560, "avg_heart_rate": 54, "avg_respiration": 15.0, "lowest_respiration": 11.0, "highest_respiration": 19.0, "awake_count": 0, "avg_sleep_stress": 19.0, "body_battery_change": 59, "overnight_hrv": 69.0, "hrv_status": "LOW", "resting_heart_rate": 49}, {"date": "2026-08-02", "sleep_seconds": 36360, "nap_seconds": 0, "deep_seconds": 6840, "light_seconds": 23460, "rem_seconds": 6060, "awake_seconds": 840, "sleep_score": 83, "sleep_need_seconds": 560, "next_sleep_need_seconds": 540, "avg_heart_rate": 54, "avg_respiration": 15.0, "lowest_respiration": 8.0, "highest_respiration": 19.0, "awake_count": 1, "avg_sleep_stress": 21.0, "body_battery_change": 57, "overnight_hrv": 69.0, "hrv_status": "LOW", "resting_heart_rate": 51}, {"date": "2026-08-03", "sleep_seconds": 31882, "nap_seconds": 0, "deep_seconds": 5880, "light_seconds": 22320, "rem_seconds": 3720, "awake_seconds": 180, "sleep_score": 84, "sleep_need_seconds": 540, "next_sleep_need_seconds": 560, "avg_heart_rate": 54, "avg_respiration": 15.0, "lowest_respiration": 12.0, "highest_respiration": 19.0, "awake_count": 0, "avg_sleep_stress": 17.0, "body_battery_change": 60, "overnight_hrv": 75.0, "hrv_status": "LOW", "resting_heart_rate": 51}, {"date": "2026-08-04", "sleep_seconds": 33120, "nap_seconds": 0, "deep_seconds": 5100, "light_seconds": 22920, "rem_seconds": 5100, "awake_seconds": 240, "sleep_score": 85, "sleep_need_seconds": 560, "next_sleep_need_seconds": 560, "avg_heart_rate": 54, "avg_respiration": 15.0, "lowest_respiration": 10.0, "highest_respiration": 19.0, "awake_count": 0, "avg_sleep_stress": 18.0, "body_battery_change": 65, "overnight_hrv": 72.0, "hrv_status": "LOW", "resting_heart_rate": 50}, {"date": "2026-08-05", "sleep_seconds": 33300, "nap_seconds": 0, "deep_seconds": 7080, "light_seconds": 21060, "rem_seconds": 5160, "awake_seconds": 1500, "sleep_score": 83, "sleep_need_seconds": 560, "next_sleep_need_seconds": 580, "avg_heart_rate": 54, "avg_respiration": 15.0, "lowest_respiration": 10.0, "highest_respiration": 18.0, "awake_count": 2, "avg_sleep_stress": 18.0, "body_battery_change": 64, "overnight_hrv": 72.0, "hrv_status": "LOW", "resting_heart_rate": 51}, {"date": "2026-08-06", "sleep_seconds": 27720, "nap_seconds": 0, "deep_seconds": 6720, "light_seconds": 17100, "rem_seconds": 3900, "awake_seconds": 300, "sleep_score": 79, "sleep_need_seconds": 580, "next_sleep_need_seconds": 580, "avg_heart_rate": 53, "avg_respiration": 15.0, "lowest_respiration": 11.0, "highest_respiration": 19.0, "awake_count": 0, "avg_sleep_stress": 17.0, "body_battery_change": 61, "overnight_hrv": 75.0, "hrv_status": "LOW", "resting_heart_rate": 49}, {"date": "2026-08-07", "sleep_seconds": 30560, "nap_seconds": 0, "deep_seconds": 5760, "light_seconds": 20460, "rem_seconds": 4380, "awake_seconds": 180, "sleep_score": 86, "sleep_need_seconds": 580, "next_sleep_need_seconds": 580, "avg_heart_rate": 51, "avg_respiration": 15.0, "lowest_respiration": 9.0, "highest_respiration": 18.0, "awake_count": 0, "avg_sleep_stress": 14.0, "body_battery_change": 71, "overnight_hrv": 86.0, "hrv_status": "LOW", "resting_heart_rate": 48}, {"date": "2026-08-08", "sleep_seconds": 32672, "nap_seconds": 0, "deep_seconds": 6060, "light_seconds": 20580, "rem_seconds": 6060, "awake_seconds": 360, "sleep_score": 89, "sleep_need_seconds": 580, "next_sleep_need_seconds": 580, "avg_heart_rate": 53, "avg_respiration": 15.0, "lowest_respiration": 10.0, "highest_respiration": 19.0, "awake_count": 0, "avg_sleep_stress": 17.0, "body_battery_change": 63, "overnight_hrv": 75.0, "hrv_status": "LOW", "resting_heart_rate": 49}, {"date": "2026-08-09", "sleep_seconds": 35280, "nap_seconds": 0, "deep_seconds": 7620, "light_seconds": 22800, "rem_seconds": 4860, "awake_seconds": 120, "sleep_score": 92, "sleep_need_seconds": 580, "next_sleep_need_seconds": 540, "avg_heart_rate": 50, "avg_respiration": 14.0, "lowest_respiration": 9.0, "highest_respiration": 19.0, "awake_count": 0, "avg_sleep_stress": 9.0, "body_battery_change": 79, "overnight_hrv": 98.0, "hrv_status": "LOW", "resting_heart_rate": 46}, {"date": "2026-08-10", "sleep_seconds": 31080, "nap_seconds": 0, "deep_seconds": 6240, "light_seconds": 18240, "rem_seconds": 6600, "awake_seconds": 120, "sleep_score": 87, "sleep_need_seconds": 540, "next_sleep_need_seconds": 540, "avg_heart_rate": 52, "avg_respiration": 14.0, "lowest_respiration": 7.0, "highest_respiration": 18.0, "awake_count": 0, "avg_sleep_stress": 18.0, "body_battery_change": 55, "overnight_hrv": 89.0, "hrv_status": "UNBALANCED", "resting_heart_rate": 49}, {"date": "2026-08-11", "sleep_seconds": 30055, "nap_seconds": 0, "deep_seconds": 6180, "light_seconds": 19080, "rem_seconds": 4800, "awake_seconds": 900, "sleep_score": 81, "sleep_need_seconds": 540, "next_sleep_need_seconds": 560, "avg_heart_rate": 54, "avg_respiration": 15.0, "lowest_respiration": 9.0, "highest_respiration": 19.0, "awake_count": 1, "avg_sleep_stress": 20.0, "body_battery_change": 54, "overnight_hrv": 73.0, "hrv_status": "UNBALANCED", "resting_heart_rate": 50}, {"date": "2026-08-12", "sleep_seconds": 28920, "nap_seconds": 0, "deep_seconds": 6420, "light_seconds": 16560, "rem_seconds": 5940, "awake_seconds": 300, "sleep_score": 82, "sleep_need_seconds": 560, "next_sleep_need_seconds": 560, "avg_heart_rate": 54, "avg_respiration": 15.0, "lowest_respiration": 11.0, "highest_respiration": 18.0, "awake_count": 0, "avg_sleep_stress": 18.0, "body_battery_change": 61, "overnight_hrv": 72.0, "hrv_status": "UNBALANCED", "resting_heart_rate": 51}, {"date": "2026-08-13", "sleep_seconds": 29273, "nap_seconds": 0, "deep_seconds": 7380, "light_seconds": 17940, "rem_seconds": 3960, "awake_seconds": 60, "sleep_score": 83, "sleep_need_seconds": 560, "next_sleep_need_seconds": 560, "avg_heart_rate": 52, "avg_respiration": 15.0, "lowest_respiration": 11.0, "highest_respiration": 19.0, "awake_count": 0, "avg_sleep_stress": 14.0, "body_battery_change": 68, "overnight_hrv": 84.0, "hrv_status": "UNBALANCED", "resting_heart_rate": 45}, {"date": "2026-08-14", "sleep_seconds": 30720, "nap_seconds": 0, "deep_seconds": 7440, "light_seconds": 17760, "rem_seconds": 5520, "awake_seconds": 0, "sleep_score": 86, "sleep_need_seconds": 560, "next_sleep_need_seconds": 540, "avg_heart_rate": 51, "avg_respiration": 15.0, "lowest_respiration": 10.0, "highest_respiration": 20.0, "awake_count": 0, "avg_sleep_stress": 18.0, "body_battery_change": 65, "overnight_hrv": 80.0, "hrv_status": "UNBALANCED", "resting_heart_rate": 49}, {"date": "2026-08-15", "sleep_seconds": 31620, "nap_seconds": 0, "deep_seconds": 8880, "light_seconds": 18420, "rem_seconds": 4320, "awake_seconds": 780, "sleep_score": 82, "sleep_need_seconds": 540, "next_sleep_need_seconds": 540, "avg_heart_rate": 54, "avg_respiration": 15.0, "lowest_respiration": 11.0, "highest_respiration": 20.0, "awake_count": 2, "avg_sleep_stress": 20.0, "body_battery_change": 58, "overnight_hrv": 70.0, "hrv_status": "UNBALANCED", "resting_heart_rate": 49}, {"date": "2026-08-16", "sleep_seconds": 33780, "nap_seconds": 0, "deep_seconds": 7500, "light_seconds": 19320, "rem_seconds": 6960, "awake_seconds": 1200, "sleep_score": 86, "sleep_need_seconds": 540, "next_sleep_need_seconds": 560, "avg_heart_rate": 51, "avg_respiration": 15.0, "lowest_respiration": 9.0, "highest_respiration": 19.0, "awake_count": 2, "avg_sleep_stress": 17.0, "body_battery_change": 70, "overnight_hrv": 89.0, "hrv_status": "UNBALANCED", "resting_heart_rate": 47}];
 
 
 // ========================================================
@@ -121,7 +121,7 @@ const allSleepData = [{"date": "2026-08-16", "sleep_seconds": 33780, "nap_second
 let sleepChart;
 
 
-function createChart(days) {
+function createChart(days) {{
 
     const sleepData = allSleepData.slice(-days);
 
@@ -141,12 +141,12 @@ function createChart(days) {
             if (
                 entry.sleep_seconds === null ||
                 entry.sleep_seconds === undefined
-            ) {
+            ) {{
                 return null;
-            }
+            }}
 
             return entry.sleep_seconds / 3600;
-        }
+        }}
     );
 
 
@@ -160,12 +160,12 @@ function createChart(days) {
             if (
                 entry.sleep_need_seconds === null ||
                 entry.sleep_need_seconds === undefined
-            ) {
+            ) {{
                 return null;
-            }
+            }}
 
             return entry.sleep_need_seconds / 3600;
-        }
+        }}
     );
 
 
@@ -173,9 +173,9 @@ function createChart(days) {
     // DESTROY OLD CHART
     // ----------------------------------------------------
 
-    if (sleepChart) {
+    if (sleepChart) {{
         sleepChart.destroy();
-    }
+    }}
 
 
     // ----------------------------------------------------
@@ -187,11 +187,11 @@ function createChart(days) {
     );
 
 
-    sleepChart = new Chart(ctx, {
+    sleepChart = new Chart(ctx, {{
 
         type: "line",
 
-        data: {
+        data: {{
 
             labels: labels,
 
@@ -201,7 +201,7 @@ function createChart(days) {
                 // TOTAL SLEEP
                 // ----------------------------------------
 
-                {
+                {{
                     label: "Total Sleep",
 
                     data: totalSleep,
@@ -213,14 +213,14 @@ function createChart(days) {
                     tension: 0.2,
 
                     spanGaps: true
-                },
+                }},
 
 
                 // ----------------------------------------
                 // SLEEP NEED
                 // ----------------------------------------
 
-                {
+                {{
                     label: "Sleep Need",
 
                     data: sleepNeed,
@@ -234,56 +234,56 @@ function createChart(days) {
                     tension: 0.2,
 
                     spanGaps: true
-                }
+                }}
 
             ]
 
-        },
+        }},
 
 
-        options: {
+        options: {{
 
             responsive: true,
 
             maintainAspectRatio: false,
 
 
-            interaction: {
+            interaction: {{
 
                 mode: "index",
 
                 intersect: false
 
-            },
+            }},
 
 
-            plugins: {
+            plugins: {{
 
-                legend: {
+                legend: {{
 
                     display: true,
 
-                    labels: {
+                    labels: {{
 
                         color: "orange"
 
-                    }
+                    }}
 
-                },
+                }},
 
 
-                tooltip: {
+                tooltip: {{
 
-                    callbacks: {
+                    callbacks: {{
 
-                        label: function(context) {
+                        label: function(context) {{
 
                             if (
                                 context.raw === null ||
                                 context.raw === undefined
-                            ) {
+                            ) {{
                                 return context.dataset.label + ": No data";
-                            }
+                            }}
 
                             return (
                                 context.dataset.label +
@@ -292,26 +292,26 @@ function createChart(days) {
                                 " hours"
                             );
 
-                        }
+                        }}
 
-                    }
+                    }}
 
-                }
+                }}
 
-            },
+            }},
 
 
-            scales: {
+            scales: {{
 
-                x: {
+                x: {{
 
-                    ticks: {
+                    ticks: {{
 
                         color: "orange",
 
                         maxTicksLimit: 8,
 
-                        callback: function(value) {
+                        callback: function(value) {{
 
                             const date = new Date(
 
@@ -323,22 +323,22 @@ function createChart(days) {
 
                                 "en-US",
 
-                                {
+                                {{
 
                                     month: "short",
 
                                     day: "numeric"
 
-                                }
+                                }}
 
                             );
 
-                        }
+                        }}
 
-                    },
+                    }},
 
 
-                    title: {
+                    title: {{
 
                         display: true,
 
@@ -346,40 +346,40 @@ function createChart(days) {
 
                         color: "orange"
 
-                    },
+                    }},
 
 
-                    grid: {
+                    grid: {{
 
                         color:
                             "rgba(255, 165, 0, 0.2)"
 
-                    }
+                    }}
 
-                },
+                }},
 
 
-                y: {
+                y: {{
 
                     min: 0,
 
                     max: 12,
 
 
-                    ticks: {
+                    ticks: {{
 
                         color: "orange",
 
-                        callback: function(value) {
+                        callback: function(value) {{
 
                             return value + "h";
 
-                        }
+                        }}
 
-                    },
+                    }},
 
 
-                    title: {
+                    title: {{
 
                         display: true,
 
@@ -387,25 +387,25 @@ function createChart(days) {
 
                         color: "orange"
 
-                    },
+                    }},
 
 
-                    grid: {
+                    grid: {{
 
                         color:
                             "rgba(255, 165, 0, 0.2)"
 
-                    }
+                    }}
 
-                }
+                }}
 
-            }
+            }}
 
-        }
+        }}
 
-    });
+    }});
 
-}
+}}
 
 
 // ========================================================
@@ -414,7 +414,7 @@ function createChart(days) {
 
 document
     .getElementById("rangeSelect")
-    .addEventListener("change", function() {
+    .addEventListener("change", function() {{
 
         const days = parseInt(
             this.value
@@ -422,7 +422,7 @@ document
 
         createChart(days);
 
-    });
+    }});
 
 
 // ========================================================
@@ -436,4 +436,3 @@ createChart(56);
 </body>
 
 </html>
-
