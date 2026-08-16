@@ -14,11 +14,11 @@
 
 <style>
 
-* {{
+* {
     box-sizing: border-box;
-}}
+}
 
-body {{
+body {
     margin: 0;
     padding: 10px;
 
@@ -27,25 +27,25 @@ body {{
     background: black;
 
     color: orange;
-}}
+}
 
-h2 {{
+h2 {
     text-align: center;
 
     margin: 5px 0 15px 0;
 
     color: orange;
-}}
+}
 
-.controls {{
+.controls {
     display: flex;
 
     justify-content: center;
 
     margin-bottom: 15px;
-}}
+}
 
-select {{
+select {
     background: black;
 
     color: orange;
@@ -57,13 +57,13 @@ select {{
     border-radius: 4px;
 
     font-size: 14px;
-}}
+}
 
-.chart-container {{
+.chart-container {
     width: 100%;
 
     height: 400px;
-}}
+}
 
 </style>
 
@@ -121,10 +121,9 @@ const allSleepData = [{"date": "2026-06-22", "sleep_seconds": 31920, "nap_second
 let sleepChart;
 
 
-function createChart(days) {{
+function createChart(days) {
 
     const sleepData = allSleepData.slice(-days);
-
 
     const labels = sleepData.map(
         entry => entry.date
@@ -141,12 +140,12 @@ function createChart(days) {{
             if (
                 entry.sleep_seconds === null ||
                 entry.sleep_seconds === undefined
-            ) {{
+            ) {
                 return null;
-            }}
+            }
 
             return entry.sleep_seconds / 3600;
-        }}
+        }
     );
 
 
@@ -160,12 +159,12 @@ function createChart(days) {{
             if (
                 entry.sleep_need_seconds === null ||
                 entry.sleep_need_seconds === undefined
-            ) {{
+            ) {
                 return null;
-            }}
+            }
 
             return entry.sleep_need_seconds / 3600;
-        }}
+        }
     );
 
 
@@ -173,9 +172,9 @@ function createChart(days) {{
     // DESTROY OLD CHART
     // ----------------------------------------------------
 
-    if (sleepChart) {{
+    if (sleepChart) {
         sleepChart.destroy();
-    }}
+    }
 
 
     // ----------------------------------------------------
@@ -187,11 +186,11 @@ function createChart(days) {{
     );
 
 
-    sleepChart = new Chart(ctx, {{
+    sleepChart = new Chart(ctx, {
 
         type: "line",
 
-        data: {{
+        data: {
 
             labels: labels,
 
@@ -201,7 +200,7 @@ function createChart(days) {{
                 // TOTAL SLEEP
                 // ----------------------------------------
 
-                {{
+                {
                     label: "Total Sleep",
 
                     data: totalSleep,
@@ -213,14 +212,14 @@ function createChart(days) {{
                     tension: 0.2,
 
                     spanGaps: true
-                }},
+                },
 
 
                 // ----------------------------------------
                 // SLEEP NEED
                 // ----------------------------------------
 
-                {{
+                {
                     label: "Sleep Need",
 
                     data: sleepNeed,
@@ -234,56 +233,56 @@ function createChart(days) {{
                     tension: 0.2,
 
                     spanGaps: true
-                }}
+                }
 
             ]
 
-        }},
+        },
 
 
-        options: {{
+        options: {
 
             responsive: true,
 
             maintainAspectRatio: false,
 
 
-            interaction: {{
+            interaction: {
 
                 mode: "index",
 
                 intersect: false
 
-            }},
+            },
 
 
-            plugins: {{
+            plugins: {
 
-                legend: {{
+                legend: {
 
                     display: true,
 
-                    labels: {{
+                    labels: {
 
                         color: "orange"
 
-                    }}
+                    }
 
-                }},
+                },
 
 
-                tooltip: {{
+                tooltip: {
 
-                    callbacks: {{
+                    callbacks: {
 
-                        label: function(context) {{
+                        label: function(context) {
 
                             if (
                                 context.raw === null ||
                                 context.raw === undefined
-                            ) {{
+                            ) {
                                 return context.dataset.label + ": No data";
-                            }}
+                            }
 
                             return (
                                 context.dataset.label +
@@ -292,53 +291,45 @@ function createChart(days) {{
                                 " hours"
                             );
 
-                        }}
+                        }
 
-                    }}
+                    }
 
-                }}
+                }
 
-            }},
+            },
 
 
-            scales: {{
+            scales: {
 
-                x: {{
+                x: {
 
-                    ticks: {{
+                    ticks: {
 
                         color: "orange",
 
                         maxTicksLimit: 8,
 
-                        callback: function(value) {{
+                        callback: function(value) {
 
                             const date = new Date(
-
                                 this.getLabelForValue(value)
-
                             );
 
                             return date.toLocaleDateString(
-
                                 "en-US",
-
-                                {{
-
+                                {
                                     month: "short",
-
                                     day: "numeric"
-
-                                }}
-
+                                }
                             );
 
-                        }}
+                        }
 
-                    }},
+                    },
 
 
-                    title: {{
+                    title: {
 
                         display: true,
 
@@ -346,40 +337,40 @@ function createChart(days) {{
 
                         color: "orange"
 
-                    }},
+                    },
 
 
-                    grid: {{
+                    grid: {
 
                         color:
                             "rgba(255, 165, 0, 0.2)"
 
-                    }}
+                    }
 
-                }},
+                },
 
 
-                y: {{
+                y: {
 
                     min: 0,
 
                     max: 12,
 
 
-                    ticks: {{
+                    ticks: {
 
                         color: "orange",
 
-                        callback: function(value) {{
+                        callback: function(value) {
 
                             return value + "h";
 
-                        }}
+                        }
 
-                    }},
+                    },
 
 
-                    title: {{
+                    title: {
 
                         display: true,
 
@@ -387,25 +378,25 @@ function createChart(days) {{
 
                         color: "orange"
 
-                    }},
+                    },
 
 
-                    grid: {{
+                    grid: {
 
                         color:
                             "rgba(255, 165, 0, 0.2)"
 
-                    }}
+                    }
 
-                }}
+                }
 
-            }}
+            }
 
-        }}
+        }
 
-    }});
+    });
 
-}}
+}
 
 
 // ========================================================
@@ -414,7 +405,7 @@ function createChart(days) {{
 
 document
     .getElementById("rangeSelect")
-    .addEventListener("change", function() {{
+    .addEventListener("change", function() {
 
         const days = parseInt(
             this.value
@@ -422,7 +413,7 @@ document
 
         createChart(days);
 
-    }});
+    });
 
 
 // ========================================================
